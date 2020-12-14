@@ -2,6 +2,19 @@ import React from "react";
 import "./App.css";
 
 import Split from "./composition/Split";
+import Tooltip from "./composition/Tooltip";
+
+const firstToolTip = (
+  <Tooltip color="hotpink" message="tooltip message">
+    ipsum
+  </Tooltip>
+);
+
+const secondToolTip = (
+  <Tooltip color="#126BCC" message="another tooltip message">
+    officiis
+  </Tooltip>
+);
 
 function App() {
   return (
@@ -10,6 +23,7 @@ function App() {
         This is the content for the left `Split`. Lorem ipsum dolor sit amet
         consectetur, adipisicing elit. Incidunt ex velit suscipit facere
         officia?
+        <Tooltip message="one more tooltip message">Necessitatibus?</Tooltip>
       </Split>
       <Split className="right">
         This is the content for the right `Split`. Inventore aliquid cupiditate
