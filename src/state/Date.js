@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { Component } from "react";
 
 class TheDate extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            foo: 'foo',
-            hello: 'Hello, world!',
-            list: [1, 2, 3],
-            obj: { nested: 'object', yes: true },
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      datetime: new Date(),
+    };
+    console.log("constructor");
+  }
 
-    render(){
-        console.log(this.state)  
-        return(
-            <div>{this.state.hello}</div>
-        )
-    }
+  componentDidMount() {
+    console.log("componentDidMount");
+    this.interval = setInterval(() => {
+      console.log("setInterval");
+      this.setState({
+        datetime: new Date(),
+      });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    console.log("render");
+    console.log(this.state);
+    return <div>{this.state.datetime.toLocaleString()}</div>;
+  }
 }
 
 export default TheDate;
