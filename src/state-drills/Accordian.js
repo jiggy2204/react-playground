@@ -1,44 +1,38 @@
 import React, { Component } from "react";
 
-class Accordian extends Component {
-  static defaultProps = { section: [] };
-
-  state = {
-    currentSectionIndex: 0,
+export default class Accordion extends Component {
+  static defaultProps = {
+    sections: [],
   };
 
-  renderContent() {
-    return this.props.section.map((sec, index) => (
-      <li>
-        <button onClick={() => this.handleButtonClick(index)}>
-          {sec.title}
+  state = {
+    activeSectionIndex: null,
+  };
+
+  handleSetActiveSecion = (sectionIndex) => {
+    this.setState({ activeSectionIndex: sectionIndex });
+  };
+
+  renderItem(section, idx, activeSectionIndex) {
+    return (
+      <li className="Accordion__item" key={idx}>
+        <button type="button" onClick={() => this.handleSetActiveSecion(idx)}>
+          {section.title}
         </button>
-        {this.handleButtonClick()}
+        {activeSectionIndex === idx && <p>{section.content}</p>}
       </li>
-    ));
-  }
-
-  handleButtonClick(index) {
-    const currentSection = this.props.section[this.state.currentSectionIndex];
-
-    this.setState({
-      currentSectionIndex: index,
-    });
-
-    if (currentSection !== this.state.currentSectionIndex) {
-      return (
-        <p>{this.props.section[this.state.currentSectionIndex].content}</p>
-      );
-    }
+    );
   }
 
   render() {
+    const { activeSectionIndex } = this.state;
+    const { sections } = this.props;
     return (
-      <div>
-        <ul>{!!this.props.section.length && this.renderContent()}</ul>
-      </div>
+      <ul>
+        {sections.map((section, idx) =>
+          this.renderItem(section, idx, activeSectionIndex)
+        )}
+      </ul>
     );
   }
 }
-
-export default Accordian;

@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Accordian section={sections} />
+        <Accordian sections={sections} />
       </div>
     );
   }
