@@ -1,34 +1,32 @@
-import React, { Component } from "react";
-import "./App.css";
+import React from "react";
+import AddItemForm from './shopping-list/AddItemForm';
+import ShoppingList from './shopping-list/ShoppingList';
 
-import Accordian from "./state-drills/Accordian";
+class App extends React.Component {
+  state = {
+    shoppingItems: [
+      /* put stub items in here for testing */
+      { name: 'apples', checked: false },
+      { name: 'oranges', checked: true },
+      { name: 'bread', checked: false },
+    ]
+  };
 
-const sections = [
-  {
-    title: "First tab",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.",
-  },
-  {
-    title: "Second tab",
-    content:
-      "Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    title: "Third tab",
-    content:
-      "Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur.",
-  },
-];
-
-class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Accordian sections={sections} />
-      </div>
-    );
+      <>
+        <header>
+          <h1>Shopping List</h1>
+        </header>
+        <main>
+          <section>
+            <AddItemForm />
+          </section>
+          <section>
+            <ShoppingList items={this.state.shoppingItems} />
+          </section>
+        </main>
+      </>
+    )
   }
 }
-
-export default App;
