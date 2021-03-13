@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <nav>
+    <div
+      className="Content Nav"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+      <a
+        href="/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+      <a
+        href="/workouts"
+        onClick={[Function]}
+      >
+        Workouts
+      </a>
+    </div>
+  </nav>
+  <header>
+    <div
+      className="Content Header"
+    >
+      <h1>
+        Paltrows
+        <br />
+        Power Toes
+      </h1>
+      <p>
+        <em>
+          put your socks away!
+        </em>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div
+      className="Content HomePage"
+    >
+      <h2>
+        Welcome to my toe-tally amazing website!
+      </h2>
+      <p>
+        I hope to provide the kick you need to get your toes in shape!
+      </p>
+      <h3>
+        Tread lightly
+      </h3>
+      <p>
+        We'll guide you one step at a time until you've completely… nailed it!
+      </p>
+      <h3>
+        Low Prices
+      </h3>
+      <p>
+        You'll save all the digits of your paycheck as we have put our foot down on prices!
+      </p>
+    </div>
+  </main>
+  <footer>
+    <div
+      className="Content Footer"
+    >
+      <p>
+        ©paltrowpowertoe, 2018. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+</div>
+`;
